@@ -97,7 +97,7 @@ void pint_push(binary_tree_t *node, levelorder_queue_t *head,
 /**
  * free_queue - Frees a levelorder_queue_t queue.
  *
- * @head: A pointer to the head of the queue.
+ * @heads: A pointer to the head of the queue.
  */
 void free_queue(levelorder_queue_t *heads)
 {
