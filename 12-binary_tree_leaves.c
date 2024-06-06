@@ -9,7 +9,7 @@
  */
 size_t binary_tree_leaves(const binary_tree_t *trees)
 {
-	size_t leave = 0;
+	size_t leaves = 0;
 
 	if (trees)
 	{
