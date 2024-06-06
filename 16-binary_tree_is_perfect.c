@@ -75,4 +75,3 @@ unsigned char is_leaf(const binary_tree_t *node)
 {
 	return ((node->left == NULL && node->right == NULL) ? 1 : 0);
 }
-
