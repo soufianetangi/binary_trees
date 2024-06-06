@@ -15,19 +15,19 @@ void pop(levelorder_queue_t **head);
  */
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 {
-	levelorder_queue_t *heads, *tail;
+	levelorder_queue_t *head, *tail;
 
 	if (tree == NULL || func == NULL)
 		return;
 
 	head = tail = create_node((binary_tree_t *)tree);
-	if (heads == NULL)
+	if (head == NULL)
 		return;
 
-	while (heads != NULL)
+	while (head != NULL)
 	{
-		pint_push(heads->node, heads, &tail, func);
-		pop(&heads);
+		pint_push(head->node, head, &tail, func);
+		pop(&head);
 	}
 }
 
@@ -41,14 +41,14 @@ void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
  */
 levelorder_queue_t *create_node(binary_tree_t *node)
 {
-	levelorder_queue_t *news;
+	levelorder_queue_t *new;
 
-	news = malloc(sizeof(levelorder_queue_t));
-	if (news == NULL)
+	new = malloc(sizeof(levelorder_queue_t));
+	if (new == NULL)
 		return (NULL);
 
-	news->node = node;
-	news->next = NULL;
+	new->node = node;
+	new->next = NULL;
 
 	return (new);
 }
@@ -99,15 +99,15 @@ void pint_push(binary_tree_t *node, levelorder_queue_t *head,
  *
  * @head: A pointer to the head of the queue.
  */
-void free_queue(levelorder_queue_t *head)
+void free_queue(levelorder_queue_t *heads)
 {
 	levelorder_queue_t *tmp;
 
-	while (head != NULL)
+	while (heads != NULL)
 	{
-		tmp = head->next;
-		free(head);
-		head = tmp;
+		tmp = heads->next;
+		free(heads);
+		heads = tmp;
 	}
 }
 
